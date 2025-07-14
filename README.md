@@ -64,9 +64,12 @@ Would consider virtualization (e.g. react-window) for 10K+ notifications.
 * Working UI demo — done
 * README/documentation — this file
 
+# Preview
+<img width="1357" height="622" alt="image" src="https://github.com/user-attachments/assets/01e13a01-e8b2-49e4-b9d6-34641838e03b" />
+<img width="1366" height="619" alt="image" src="https://github.com/user-attachments/assets/5afc211e-bf8c-476c-bb9e-dfa1d435fcd5" />
+
 # Final Step
 Once this is ready, push to GitHub:
-
 git init
 git add .
 git commit -m "Initial notification center submission"
