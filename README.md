@@ -1,6 +1,9 @@
 # Notification Center
 A scalable Notification Center built with React + Redux, featuring real-time updates (mocked), pagination, grouping by type, read/unread toggling, and full dark/light theme support.
 
+# Live Demo
+[View Live Demo](https://bisistastha.github.io/notification-center)
+
 # Features:
 * Real-time updates using mocked setInterval
 * Grouped rendering by notification type (e.g. comments, alerts)
@@ -11,8 +14,11 @@ A scalable Notification Center built with React + Redux, featuring real-time upd
 
 # Installation
 git clone https://github.com/bisistastha/notification-center.git
+
 cd notification-center
+
 npm install
+
 npm start
 
 # Component Structure
@@ -76,3 +82,4 @@ git commit -m "Initial notification center submission"
 git branch -M main
 git remote add origin https://github.com/bisistastha/notification-center.git
 git push -u origin main
+
