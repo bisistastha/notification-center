@@ -1,0 +1,46 @@
+
+.notification-item {
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  animation: fadeIn 0.4s ease-in;
+}
+
+/* Light mode notification item */
+.notification-center.light .notification-item.unread {
+  background-color: #f0f8ff;
+  border: 1px solid #cce4ff;
+  color: #333;
+}
+
+.notification-center.light .notification-item.read {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #777;
+}
+
+/* Dark mode notification item */
+.notification-center.dark .notification-item.unread {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  color: #e0f2fe;
+}
+
+.notification-center.dark .notification-item.read {
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  color: #94a3b8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

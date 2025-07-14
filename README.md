@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Notification Center
+A scalable Notification Center built with React + Redux, featuring real-time updates (mocked), pagination, grouping by type, read/unread toggling, and full dark/light theme support.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Features:
+* Real-time updates using mocked setInterval
+* Grouped rendering by notification type (e.g. comments, alerts)
+* Pagination support for large datasets
+* Read/unread toggle with localStorage persistence
+* Theme toggle (dark/light) with body-wide effect
+* Modular and reusable component architecture
 
-## Available Scripts
+# Installation
+git clone https://github.com/bisistastha/notification-center.git
+cd notification-center
+npm install
+npm start
 
-In the project directory, you can run:
+# Component Structure
+App.js
+├── NotificationCenter/index.js
+│   ├── NotificationList.js
+│       └── NotificationItem/index.js
+* App.js — global theme controller
+* NotificationCenter — main logic, filtering, pagination, and dispatching
+* NotificationList — paginated notification list renderer
+* NotificationItem — interactive single notification with read/unread toggling
 
-### `npm start`
+# State Management
+* Redux is used for global notification state.
+* Slice: notificationsSlice.js
+    * addNotification
+    * markAsRead / markAsUnread
+    * markAllAsRead
+* React's useSelector and useDispatch used for access and mutation.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Real-Time Updates
+* Simulated using setInterval inside useEffect.
+* New notifications are dispatched every 5 seconds using addNotification().
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Adding New Notification Types
+const types = ['comment', 'alert', 'like']; 
+* Add to mock generator, adjust UI filters, and update CSS/theme styles if needed.
 
-### `npm test`
+# Edge Cases Considered
+* Handles empty states gracefully (“No notifications to display”).
+* Keeps pagination in sync when filter changes or items are deleted.
+* Persist read/unread status using localStorage.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Theming
+* Toggle between light/dark mode using a global setDarkMode state.
+* Themes affect body, notification cards, buttons, and controls.
+* Responsive design with full-width notification display.
 
-### `npm run build`
+# Performance
+* Pagination (not virtualization) for clarity and simplicity.
+* Memoization (useMemo) for filtered/sorted notifications.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Would consider virtualization (e.g. react-window) for 10K+ notifications.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Submission Requirements
+* Grouped rendering — done
+* Read/unread toggle — done
+* Real-time mock — done
+* Working UI demo — done
+* README/documentation — this file
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Final Step
+Once this is ready, push to GitHub:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+git init
+git add .
+git commit -m "Initial notification center submission"
+git branch -M main
+git remote add origin https://github.com/bisistastha/notification-center.git
+git push -u origin main
